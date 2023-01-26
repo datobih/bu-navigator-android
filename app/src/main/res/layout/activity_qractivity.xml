@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QRActivity"
+    android:background="#101010"
+    >
+
+
+    <TextView
+        android:id="@+id/tv_scanQr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        android:fontFamily="@font/roboto"
+        android:text="Scan your QR Code"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/qr_code_white_scanner"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_scanQr"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_scanQR"
+        ></com.airbnb.lottie.LottieAnimationView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_scanQR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="53dp"
+        android:background="@drawable/qr_btn_bg"
+        app:backgroundTint="#829286"
+        android:text="Scan QR Code"
+        android:textAllCaps="false"
+        android:textSize="26sp"
+        android:fontFamily="@font/roboto"
+        android:layout_marginBottom="97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:drawableLeft="@drawable/scan_icon"
+
+        ></com.google.android.material.button.MaterialButton>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PointToPointRoutingApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#3949ab</item>
+        <item name="colorPrimaryVariant">#3949ab</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="android:windowBackground">@drawable/splash</item>-->
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="toolbar_text_style"
+        >
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+
+    <style name="nav_text_style"
+        >
+        <item name="android:fontFamily">@font/poppins</item>
+
+    </style>
+
+</resources>

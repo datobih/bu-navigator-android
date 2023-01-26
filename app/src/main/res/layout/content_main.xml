@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/main_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6938D3"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/toolbar_text_style"
+        ></androidx.appcompat.widget.Toolbar>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+
+            ></FrameLayout>
+
+
+
+        <ImageButton
+            android:id="@+id/btn_refresh_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_round_refresh_24"
+            app:tint="#757575"
+            android:backgroundTint="@color/white"
+            android:elevation="10dp"></ImageButton>
+
+
+        <FrameLayout
+            android:id="@+id/sheet"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+
+
+
+            >
+            <LinearLayout
+                android:id="@+id/slidable_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/location_panel_bg"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:clickable="true"
+                >
+
+                <View
+                    android:layout_width="59dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/bottom_sheet_toggle"
+                    android:layout_margin="20dp"
+                    ></View>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_destinations"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    ></androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</LinearLayout>
