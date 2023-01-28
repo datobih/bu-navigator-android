@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.camera:camera-mlkit-vision:1.3.0-alpha03@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/70c7c7223bda03f15720caf301d29a16/transformed/camera-mlkit-vision-1.3.0-alpha03/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/70c7c7223bda03f15720caf301d29a16/transformed/camera-mlkit-vision-1.3.0-alpha03/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/70c7c7223bda03f15720caf301d29a16/transformed/camera-mlkit-vision-1.3.0-alpha03/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.camera/camera-mlkit-vision/1.3.0-alpha03/e19fe850a1732c6cd9f12a419e9f68c8f5e84ba8/camera-mlkit-vision-1.3.0-alpha03-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
