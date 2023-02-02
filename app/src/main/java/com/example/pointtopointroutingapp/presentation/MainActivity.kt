@@ -43,6 +43,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import androidx.activity.viewModels
+import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity(),
     GoogleMap.OnCameraMoveStartedListener,
@@ -75,6 +76,12 @@ class MainActivity : AppCompatActivity(),
 //        val mainViewModel:MainViewModel by viewModels()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val isFirstTime=Constants.sharedPreferences!!.getBoolean(Constants.SHARED_PREFERENCES_FIRST_TIME,true)
+        if(isFirstTime){
+
+        }
+
 
         binding.drawerMain.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED)
         setSupportActionBar(binding.layoutContentMain.mainActionBar)

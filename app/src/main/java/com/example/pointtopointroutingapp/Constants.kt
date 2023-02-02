@@ -2,8 +2,35 @@ package com.example.pointtopointroutingapp
 
 import android.content.SharedPreferences
 import com.example.pointtopointroutingapp.models.Destination
+import com.example.pointtopointroutingapp.models.OnboardingItem
 
 object Constants {
+
+    val SHARED_PREFERENCES_NAME="SHARED_PREFERENCES_NAME"
+    val SHARED_PREFERENCES_FIRST_TIME="SHARED_PREFERENCES_FIRST_TIME"
+    val SHARED_PREFERENCES_LOCATIONS="SHARED_PREFERENCES_FIRST_LOCATIONS"
+    var sharedPreferences:SharedPreferences?=null
+
+
+    val onBoardingItems= listOf<OnboardingItem>(
+        OnboardingItem(
+            "Welcome to the future of campus navigation!"
+        ,R.raw.map_navigation,
+            "Say goodbye to the days of getting lost on campus and hello to a new era of seamless navigation." +
+                    " Our cutting-edge point-to-point routing system is designed to help you easily find your way around campus."
+    ),
+        OnboardingItem(
+            "Discover new paths and reach your destination with ease"
+            ,R.raw.dlivery_map,
+            "Say goodbye to monotonous and congested routes, and hello to an ever-evolving world of campus navigation. Get ready to discover new paths and reach your destination with ease, today!"
+        )
+        ,
+        OnboardingItem(
+            "Let's get you started on your journey"
+        ,R.raw.get_started,
+            "Our goal is to make your campus navigation experience as smooth and effortless as possible. In just a few simple steps, we'll get you set up and ready to explore your surroundings like never before. "
+        )
+    )
 
     val destinations = listOf<Destination>(
         Destination(
@@ -142,7 +169,6 @@ object Constants {
 
         )
 
-    val SHARED_PREFERENCES_NAME="SHARED_PREFERENCES_NAME"
-    var sharedPreferences:SharedPreferences?=null
+
 
 }

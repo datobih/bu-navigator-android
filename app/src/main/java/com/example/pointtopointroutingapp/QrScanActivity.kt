@@ -16,18 +16,19 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.pointtopointroutingapp.databinding.ActivityQrScanBinding
+import com.example.pointtopointroutingapp.utils.BarcodeAnalyzer
 import java.text.SimpleDateFormat
 import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class QrScanActivity : AppCompatActivity() {
-    lateinit var binding:ActivityQrScanBinding
+    lateinit var binding: ActivityQrScanBinding
     lateinit var cameraExecutor: ExecutorService
-    var imageCapture:ImageCapture?=null
+    var imageCapture: ImageCapture? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityQrScanBinding.inflate(layoutInflater)
+        binding = ActivityQrScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -45,54 +46,52 @@ class QrScanActivity : AppCompatActivity() {
         cameraExecutor.shutdown()
     }
 
-    fun startCamera(){
-        val cameraProviderFuture=ProcessCameraProvider.getInstance(this)
+    fun startCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener({
-            val cameraProvider:ProcessCameraProvider=cameraProviderFuture.get()
-            val preview= Preview.Builder()
+            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            val preview = Preview.Builder()
                 .build()
                 .also {
                     it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
-            imageCapture=ImageCapture.Builder().build()
-            val cameraSelector= CameraSelector.DEFAULT_BACK_CAMERA
+            imageCapture = ImageCapture.Builder().build()
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             val imageAnalyzer = ImageAnalysis.Builder()
                 .build()
                 .also { imageAnalysis ->
-                    imageAnalysis.setAnalyzer(cameraExecutor,LuminosityAnalyzer{
-                        Log.d("AVG_LUMIN", "Average Luminosity: $it")
-                    })
+                    imageAnalysis.setAnalyzer(cameraExecutor, BarcodeAnalyzer())
                 }
 
-            try{
+            try {
                 cameraProvider.unbindAll()
-                cameraProvider.bindToLifecycle(this,
-                cameraSelector,preview,imageCapture,imageAnalyzer)
-            }
-            catch (e:java.lang.Exception){
-                Log.e("STARTCAMERA:", "Use case binding failed", )
+                cameraProvider.bindToLifecycle(
+                    this,
+                    cameraSelector, preview, imageCapture, imageAnalyzer
+                )
+            } catch (e: java.lang.Exception) {
+                Log.e("STARTCAMERA:", "Use case binding failed")
             }
 
-        },ContextCompat.getMainExecutor(this))
+        }, ContextCompat.getMainExecutor(this))
 
 
     }
 
-    fun takePhoto(){
-        val imageCapture= imageCapture ?: return
+    fun takePhoto() {
+        val imageCapture = imageCapture ?: return
         val name = SimpleDateFormat("yyyy.MM.dd").format(System.currentTimeMillis())
-        val contentValues= ContentValues().apply {
-            put(MediaStore.MediaColumns.DISPLAY_NAME,name)
-            put(MediaStore.MediaColumns.MIME_TYPE,"image/jpeg")
-            if(Build.VERSION.SDK_INT >Build.VERSION_CODES.P){
-                put(MediaStore.Images.Media.RELATIVE_PATH,"Pictures/CameraX-Image")
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/CameraX-Image")
             }
         }
 
 
-        val outputOptions=ImageCapture.
-        OutputFileOptions.Builder(
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(
             contentResolver,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
             contentValues
@@ -101,23 +100,25 @@ class QrScanActivity : AppCompatActivity() {
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
-            object: ImageCapture.OnImageSavedCallback{
+            object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
 
-                  val msg="Photo capture succeeded: ${outputFileResults.savedUri}"
-                    Toast.makeText(this@QrScanActivity,
-                        msg
-                    ,Toast.LENGTH_SHORT).show()
+                    val msg = "Photo capture succeeded: ${outputFileResults.savedUri}"
+                    Toast.makeText(
+                        this@QrScanActivity,
+                        msg, Toast.LENGTH_SHORT
+                    ).show()
                     Log.d("onImageSaved", "onImageSaved: $msg ")
 
 
                 }
 
                 override fun onError(exception: ImageCaptureException) {
-                    val msg="Something went wrong"
-                    Toast.makeText(baseContext,
-                        msg
-                        ,Toast.LENGTH_SHORT).show()
+                    val msg = "Something went wrong"
+                    Toast.makeText(
+                        baseContext,
+                        msg, Toast.LENGTH_SHORT
+                    ).show()
                     Log.d("onError", "onError: $msg ")
 
                 }
@@ -126,11 +127,7 @@ class QrScanActivity : AppCompatActivity() {
         )
 
 
-
-
-
     }
-
 
 
 }

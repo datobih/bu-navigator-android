@@ -1,6 +1,7 @@
 package com.example.pointtopointroutingapp.utils
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScanner
@@ -18,13 +19,24 @@ class BarcodeAnalyzer():ImageAnalysis.Analyzer {
             val scanner = BarcodeScanning.getClient()
             val  result= scanner.process(image)
                 .addOnSuccessListener {
+                    barcodes->
+                    Log.d("BARCODE", "analyze: Success!")
 
+                    for(barcode in barcodes){
+                        val bounds = barcode.boundingBox
+                        val corners = barcode.cornerPoints
+
+                        val rawValue = barcode.rawValue
+                        Log.d("BARCODE", "analyze: Success $rawValue")
+
+                    }
                 }
                 .addOnFailureListener {
-
+                    Log.d("BARCODE", "analyze:  Failure")
                 }
 
         }
 
+        imageProxy.close()
     }
 }

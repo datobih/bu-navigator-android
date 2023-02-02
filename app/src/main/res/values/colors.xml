@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGrey">#9e9e9e</color>
     <color name="mBlue">#1976d2</color>
+    <color name="button_purp">#8875B3</color>
 </resources>
