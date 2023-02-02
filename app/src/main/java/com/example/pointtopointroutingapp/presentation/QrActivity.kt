@@ -1,4 +1,4 @@
-package com.example.pointtopointroutingapp
+package com.example.pointtopointroutingapp.presentation
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -48,7 +48,7 @@ class QrActivity : AppCompatActivity() {
 
             when{
             allPremissionsGranted()->{
-            startActivity(Intent(this,QrScanActivity::class.java))
+            startActivity(Intent(this, QrScanActivity::class.java))
                 finish()
         }
               checkRationale()->{

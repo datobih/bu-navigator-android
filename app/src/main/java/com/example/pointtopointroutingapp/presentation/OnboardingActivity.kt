@@ -1,9 +1,11 @@
 package com.example.pointtopointroutingapp.presentation
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.pointtopointroutingapp.Constants
 import com.example.pointtopointroutingapp.R
@@ -12,6 +14,8 @@ import com.example.pointtopointroutingapp.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
     lateinit var binding: ActivityOnboardingBinding
+
+    private val mainViewModel:MainViewModel by viewModels { MainViewModel.Factory }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityOnboardingBinding.inflate(layoutInflater)
@@ -30,6 +34,14 @@ class OnboardingActivity : AppCompatActivity() {
 
             }
         })
+
+
+        binding.btnGetStarted.setOnClickListener {
+
+            mainViewModel.onBoardingDone()
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
     }
 
     fun dotIndicatorSelectPosition(position:Int){

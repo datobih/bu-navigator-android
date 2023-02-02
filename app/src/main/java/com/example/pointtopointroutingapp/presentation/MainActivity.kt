@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity(),
     var selectedMarker: Marker? = null
 
     var previousPinPoint: Marker? = null
+    private val mainViewModel:MainViewModel by viewModels { MainViewModel.Factory }
 
     private val startSettingsForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -77,9 +78,14 @@ class MainActivity : AppCompatActivity(),
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val isFirstTime=Constants.sharedPreferences!!.getBoolean(Constants.SHARED_PREFERENCES_FIRST_TIME,true)
+        val isFirstTime=mainViewModel.isUserFirstTime()
         if(isFirstTime){
-
+            Log.d("FIRST_USER", "onCreate: TRUE")
+            startActivity(Intent(this,OnboardingActivity::class.java))
+            finish()
+        }
+        else{
+            Log.d("FIRST_USER", "onCreate: FALSE")
         }
 
 

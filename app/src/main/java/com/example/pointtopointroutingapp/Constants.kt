@@ -3,6 +3,7 @@ package com.example.pointtopointroutingapp
 import android.content.SharedPreferences
 import com.example.pointtopointroutingapp.models.Destination
 import com.example.pointtopointroutingapp.models.OnboardingItem
+import com.example.pointtopointroutingapp.repository.MainRepository
 
 object Constants {
 
@@ -10,6 +11,7 @@ object Constants {
     val SHARED_PREFERENCES_FIRST_TIME="SHARED_PREFERENCES_FIRST_TIME"
     val SHARED_PREFERENCES_LOCATIONS="SHARED_PREFERENCES_FIRST_LOCATIONS"
     var sharedPreferences:SharedPreferences?=null
+    var mainRepository:MainRepository?=null
 
 
     val onBoardingItems= listOf<OnboardingItem>(

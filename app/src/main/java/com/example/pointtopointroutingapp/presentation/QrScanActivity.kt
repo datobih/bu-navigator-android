@@ -1,7 +1,6 @@
-package com.example.pointtopointroutingapp
+package com.example.pointtopointroutingapp.presentation
 
 import android.content.ContentValues
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,7 +17,6 @@ import androidx.core.content.ContextCompat
 import com.example.pointtopointroutingapp.databinding.ActivityQrScanBinding
 import com.example.pointtopointroutingapp.utils.BarcodeAnalyzer
 import java.text.SimpleDateFormat
-import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
