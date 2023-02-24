@@ -59,7 +59,11 @@ class QrScanActivity : AppCompatActivity() {
             val imageAnalyzer = ImageAnalysis.Builder()
                 .build()
                 .also { imageAnalysis ->
-                    imageAnalysis.setAnalyzer(cameraExecutor, BarcodeAnalyzer())
+                    imageAnalysis.setAnalyzer(cameraExecutor, BarcodeAnalyzer({
+
+                    setResult(1)
+                        finish()
+                    }))
                 }
 
             try {

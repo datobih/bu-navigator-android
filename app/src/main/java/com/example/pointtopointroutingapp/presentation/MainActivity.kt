@@ -78,6 +78,11 @@ class MainActivity : AppCompatActivity(),
             else toastMessage("Location still not enabled")
 
         }
+    private val startQrForResult= registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
+
+    }
+
     private var mFusedLocationClient: FusedLocationProviderClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +101,23 @@ class MainActivity : AppCompatActivity(),
             Log.d("FIRST_USER", "onCreate: FALSE")
         }
 
+    binding.navMain.setNavigationItemSelectedListener {
 
+        menuItem->
+
+       when(menuItem.itemId){
+            R.id.Profile->{
+                startQrForResult.launch(Intent(this,QrActivity::class.java))
+                true
+            }
+
+
+           else->{
+               true
+           }
+        }
+
+    }
        destinationAdapter = DestinationRecyclerAdapter(Constants.destinations)
         destinationAdapter.destinationOnClickListener =
             object : DestinationRecyclerAdapter.DestinationOnClickListener {

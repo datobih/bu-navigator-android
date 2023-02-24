@@ -7,8 +7,9 @@ import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScanner
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
+import kotlinx.coroutines.delay
 
-class BarcodeAnalyzer():ImageAnalysis.Analyzer {
+class BarcodeAnalyzer(val scanDone:()->Unit):ImageAnalysis.Analyzer {
     @SuppressLint("UnsafeOptInUsageError")
     override fun analyze(imageProxy: ImageProxy) {
         val mediaImage= imageProxy.image
@@ -29,6 +30,7 @@ class BarcodeAnalyzer():ImageAnalysis.Analyzer {
                         val rawValue = barcode.rawValue
                         Log.d("BARCODE", "analyze: Success $rawValue")
 
+                        scanDone()
                     }
                 }
                 .addOnFailureListener {
@@ -36,7 +38,7 @@ class BarcodeAnalyzer():ImageAnalysis.Analyzer {
                 }
 
         }
-
+        Thread.sleep(10)
         imageProxy.close()
     }
 }
