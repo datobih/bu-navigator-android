@@ -14,6 +14,9 @@ import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.ListAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -44,6 +47,12 @@ import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import androidx.activity.viewModels
 import androidx.core.content.edit
+import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.*
+import com.example.pointtopointroutingapp.adapters.LocationsRecyclerAdapter
+import com.example.pointtopointroutingapp.adapters.SearchLocationListAdapter
+import com.example.pointtopointroutingapp.models.Destination
 
 class MainActivity : AppCompatActivity(),
     GoogleMap.OnCameraMoveStartedListener,
@@ -58,13 +67,12 @@ class MainActivity : AppCompatActivity(),
     var mPolyData = ArrayList<PolyLineData>()
     var mPolyline: Polyline? = null
     var selectedMarker: Marker? = null
-
+    lateinit var destinationAdapter:DestinationRecyclerAdapter
     var previousPinPoint: Marker? = null
     private val mainViewModel:MainViewModel by viewModels { MainViewModel.Factory }
 
     private val startSettingsForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
 
             if (checkLocation()) displayMap()
             else toastMessage("Location still not enabled")
@@ -89,6 +97,88 @@ class MainActivity : AppCompatActivity(),
         }
 
 
+       destinationAdapter = DestinationRecyclerAdapter(Constants.destinations)
+        destinationAdapter.destinationOnClickListener =
+            object : DestinationRecyclerAdapter.DestinationOnClickListener {
+                override fun onClick(latitude: Double, longitude: Double) {
+                    setCameraView(latitude, longitude,true)
+                    BottomSheetBehavior.from(binding.layoutContentMain.sheetScene.sheet).apply {
+                        peekHeight = 200
+                        this.state = BottomSheetBehavior.STATE_COLLAPSED
+                    }
+                }
+
+            }
+
+
+        val sceneRoot= binding.layoutContentMain.sceneRoot
+        val sheetScene= Scene.getSceneForLayout(sceneRoot,R.layout.sheet_scene,this)
+        val locationRvScene=Scene.getSceneForLayout(sceneRoot,R.layout.location_rv_scene,this)
+
+
+
+//
+        val searchLocationQueryAdapter=LocationsRecyclerAdapter()
+//        binding.layoutContentMain.rvLocations.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+//        binding.layoutContentMain.rvLocations.adapter=searchLocationQueryAdapter
+
+        binding.layoutContentMain.actSearchLocation.addTextChangedListener {
+
+            if(it.isNullOrEmpty()){
+
+                TransitionManager.go(sheetScene, Slide())
+
+                sheetScene.sceneRoot.findViewById<RecyclerView>(R.id.rv_destinations).apply {
+                    layoutManager=LinearLayoutManager(this@MainActivity)
+                    adapter=destinationAdapter
+
+                }
+
+
+//                binding.layoutContentMain.rvLocations.visibility=View.GONE
+//                binding.layoutContentMain.sceneRoot.visibility= View.VISIBLE
+
+
+                setupBottomSheet(sheetScene.sceneRoot.findViewById(R.id.sheet))
+
+
+            }
+
+            else{
+                locationRvScene.sceneRoot.findViewById<RecyclerView>(R.id.rv_destinations)?.apply {
+                    TransitionManager.go(locationRvScene, Slide())
+                }
+                locationRvScene.sceneRoot.findViewById<RecyclerView>(R.id.rv_locations).apply {
+                    val locationList=ArrayList<Destination>()
+
+
+                for(location  in Constants.destinations){
+                    if(location.name.lowercase().contains(it.toString().lowercase())){
+                        locationList.add(location)
+                    }
+                }
+                    layoutManager= LinearLayoutManager(this@MainActivity,LinearLayoutManager.HORIZONTAL,false)
+                adapter=searchLocationQueryAdapter
+                searchLocationQueryAdapter.submitList(locationList)
+
+                }
+
+//                val locationList=ArrayList<Destination>()
+//                binding.layoutContentMain.sceneRoot.visibility=View.GONE
+//                binding.layoutContentMain.rvLocations.visibility=View.VISIBLE
+//
+//                for(location  in Constants.destinations){
+//                    if(location.name.contains(it.toString())){
+//                        locationList.add(location)
+//                    }
+//                }
+////                binding.layoutContentMain.rvLocations.adapter=searchLocationQueryAdapter
+//                searchLocationQueryAdapter.submitList(locationList)
+            }
+
+
+        }
+
         binding.drawerMain.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED)
         setSupportActionBar(binding.layoutContentMain.mainActionBar)
 //        supportActionBar?.setIcon(R.drawable.ic_baseline_menu_24)
@@ -110,10 +200,7 @@ class MainActivity : AppCompatActivity(),
             resetMap()
         }
 
-        BottomSheetBehavior.from(binding.layoutContentMain.sheet).apply {
-            peekHeight = 200
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
+        setupBottomSheet(binding.layoutContentMain.sheetScene.sheet)
 
 
         val requestPermissionLauncher =
@@ -266,20 +353,9 @@ class MainActivity : AppCompatActivity(),
             .apiKey("AIzaSyBae1961sKyOmV6O0wbzHDI0r6_G_Pd4TI")
             .build()
 
-        val destinationAdapter = DestinationRecyclerAdapter(Constants.destinations)
-        destinationAdapter.destinationOnClickListener =
-            object : DestinationRecyclerAdapter.DestinationOnClickListener {
-                override fun onClick(latitude: Double, longitude: Double) {
-                    setCameraView(latitude, longitude,true)
-                    BottomSheetBehavior.from(binding.layoutContentMain.sheet).apply {
-                        peekHeight = 200
-                        this.state = BottomSheetBehavior.STATE_COLLAPSED
-                    }
-                }
 
-            }
-        binding.layoutContentMain.rvDestinations.layoutManager = LinearLayoutManager(this)
-        binding.layoutContentMain.rvDestinations.adapter = destinationAdapter
+        binding.layoutContentMain.sheetScene.rvDestinations.layoutManager = LinearLayoutManager(this)
+        binding.layoutContentMain.sheetScene.rvDestinations.adapter = destinationAdapter
 
 
     }
@@ -529,6 +605,15 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onCameraMove() {
+    }
+
+    fun setupBottomSheet(view:View){
+
+        BottomSheetBehavior.from(view).apply {
+            peekHeight = 200
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
     }
 
 

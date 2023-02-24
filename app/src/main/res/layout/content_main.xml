@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
     >
 
     <androidx.appcompat.widget.Toolbar
@@ -28,56 +29,64 @@
             ></FrameLayout>
 
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
-        <ImageButton
-            android:id="@+id/btn_refresh_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_round_refresh_24"
-            app:tint="#757575"
-            android:backgroundTint="@color/white"
-            android:elevation="10dp"></ImageButton>
+    <ImageButton
+        android:id="@+id/btn_refresh_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_round_refresh_24"
+        app:tint="#757575"
+        android:backgroundTint="@color/white"
+        android:elevation="10dp"
 
 
-        <FrameLayout
-            android:id="@+id/sheet"
+        ></ImageButton>
+
+
+
+
+        <EditText
+            android:id="@+id/act_search_location"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            android:layout_height="40dp"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginHorizontal="15dp"
+            android:layout_below="@id/btn_refresh_map"
+            android:paddingStart="15dp"
+            android:drawableStart="@drawable/search_padding_bg"
+            android:drawablePadding="10dp"
+            android:hint="Search..."
+            style="@style/search_text_style"
+            ></EditText>
 
 
 
-            >
-            <LinearLayout
-                android:id="@+id/slidable_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/location_panel_bg"
-                android:layout_gravity="bottom"
-                android:layout_marginHorizontal="5dp"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:clickable="true"
-                >
 
-                <View
-                    android:layout_width="59dp"
-                    android:layout_height="7dp"
-                    android:background="@drawable/bottom_sheet_toggle"
-                    android:layout_margin="20dp"
-                    ></View>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_destinations"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+</RelativeLayout>
 
-                    ></androidx.recyclerview.widget.RecyclerView>
 
-            </LinearLayout>
+<FrameLayout
+    android:id="@+id/scene_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-        </FrameLayout>
+
+    >
+
+    <include
+        android:id="@+id/sheet_scene"
+        layout="@layout/sheet_scene"></include>
+
+</FrameLayout>
+
+
 
 
 

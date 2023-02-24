@@ -29,7 +29,7 @@ class OnboardingViewPagerAdapter(val pagesList:List<OnboardingItem>):RecyclerVie
         with(holder.binding) {
            animationView.setAnimation(pagesList[position].image)
             tvTitle.text = pagesList[position].title
-            tvDescription.text=pagesList[position].description
+            tvOnboardingDescription.text=pagesList[position].description
         }
 
 
