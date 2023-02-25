@@ -53,6 +53,7 @@ import androidx.transition.*
 import com.example.pointtopointroutingapp.adapters.LocationsRecyclerAdapter
 import com.example.pointtopointroutingapp.adapters.SearchLocationListAdapter
 import com.example.pointtopointroutingapp.models.Destination
+import com.example.pointtopointroutingapp.utils.CustomClusterUrlRenderer
 
 class MainActivity : AppCompatActivity(),
     GoogleMap.OnCameraMoveStartedListener,
@@ -327,21 +328,26 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(
-            MarkerOptions().position(sydney)
-                .title("Marker in Sydney")
-        )
+//        val sydney = LatLng(-34.0, 151.0)
+//        mMap.addMarker(
+//            MarkerOptions().position(sydney)
+//                .title("Marker in Sydney")
+//        )
+
+
+        mMap.setMapStyle(MapStyleOptions(Constants.mapStyle))
         if (location != null) {
             setCameraView()
             setupClusterer()
         }
         mMap.isMyLocationEnabled = true
+        //    41.26443
+//    -95.94438
         mMap.setOnCameraMoveListener {
             val cameraPos = mMap.cameraPosition
             val latitude = cameraPos.target.latitude
             val longitude = cameraPos.target.longitude
-            if ((latitude < 41.3 && latitude > 41.1) && (longitude > -96.0 && longitude < -95.90)) {
+            if ((latitude < 6.9 && latitude > 6.5) && (longitude > 3.5 && longitude < 3.8)) {
                 clusterManager.cluster()
             }
 
@@ -452,10 +458,12 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
         )
 
     }
-
+//    41.26443
+//    -95.94438
     private fun setCameraView(
-        latitude: Double = 41.26443,
-        longitude: Double = -95.94438,
+
+        latitude: Double = 6.8907522,
+        longitude: Double = 3.7217974,
 //        latitude: Double = 6.894475,
 //        longitude: Double = 3.724666,
         zoomIn:Boolean=false
@@ -506,7 +514,7 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
 
     fun setupClusterer() {
         clusterManager = ClusterManager<CustomMarker>(this, mMap)
-        clusterManager.renderer = CustomClusterRenderer(this, mMap, clusterManager)
+        clusterManager.renderer = CustomClusterUrlRenderer(this, mMap, clusterManager)
 
         val collection = clusterManager.markerCollection
 
@@ -519,13 +527,13 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
 
 
 
-        for (destination in Constants.destinations) {
+        for (destination in Constants.buDestinations) {
             clusterManager.addItem(
                 CustomMarker(
                     LatLng(
                         destination.latitude,
                         destination.longitude
-                    ), destination.name, destination.dest, destination.markerRes
+                    ), destination.name, destination.dest, imageUrl = destination.imageUrl
                 )
             )
 
@@ -560,6 +568,7 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
 
     fun showPolylineToMap(directionsResult: DirectionsResult) {
         lifecycleScope.launch {
+            //Clear previous polyline
             withContext(Dispatchers.Main) {
                 if (mPolyData.size > 0) {
                     for (data in mPolyData) {
@@ -626,6 +635,7 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
     }
 
     override fun onCameraMove() {
+
     }
 
     fun setupBottomSheet(view:View){

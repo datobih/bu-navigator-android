@@ -27,6 +27,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/93857aa41e8e2a5928c5cb4b22d1e31d/transformed/material-1.7.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e43e092ec182dbc4738ab49c7efb142f/transformed/appcompat-1.5.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f84570f0496222ed646fafeeb31c88a4/transformed/play-services-maps-18.1.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/822fc8f43c2adade8acd1529fdd0b2ad/transformed/glide-4.14.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d44966e6bed341b074415135ecf12999/transformed/viewpager2-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/cae3a5054b04e645d7b09238fd5dac49/transformed/play-services-location-21.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ef1cb00dbb85481a386317492e42ff27/transformed/barcode-scanning-17.0.3-api.jar</arg>
@@ -83,6 +84,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/88683feb46e02c2f92c42ced0ec8132c/transformed/lifecycle-livedata-core-ktx-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/c42aad5a6b84a41eade240088c93acb4/transformed/lifecycle-livedata-core-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.5.1/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.5.1.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/e2ac46b28af20f4f1547de9e72924ec9/transformed/gifdecoder-4.14.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/89d8b9ad4908049bbf8dc1ae0b18dd49/transformed/versionedparcelable-1.1.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ae22c93efdd0521991b58fdbdbb0b277/transformed/core-runtime-2.1.0-api.jar</arg>
@@ -93,7 +95,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3e4d485a0df0e79d1e0ab336bde21ae3/transformed/firebase-components-16.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b4fd81129c0c0b892c5e811db5a24384/transformed/firebase-encoders-json-17.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.1.0/267565db8531da1483692e27eb58f93ec894c78/firebase-encoders-16.1.0.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/2c122f8b8e74716e0c5c0ed98d670e60/transformed/exifinterface-1.3.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8d9b22bf1ad6dc880a9950ef05a8d00d/transformed/interpolator-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b34c2fcbfe3a01c05371a758e4269668/transformed/documentfile-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2de16725a2e608dfb703198115da73c6/transformed/localbroadcastmanager-1.0.0-api.jar</arg>
@@ -105,6 +106,7 @@
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2319425c22a3d3f99f5c7ffc5c85ed72/transformed/annotation-experimental-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c949a840a6acbc5268d088e47b04177bf90b3cad/listenablefuture-1.0.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/3035131f3940c4f532b25b4c3b5db4c1/transformed/tracing-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.3/deef7fc81f00bd5e6205bb097be1040b4094f007/slf4j-api-2.0.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10/dd9b193aef96e973d5a11ab13cd17430c2e4306b/gson-2.10.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.opencensus/opencensus-api/0.31.0/6634f10ecd5eb3ac248f3ed5ee727c9a28c841bd/opencensus-api-0.31.0.jar</arg>
@@ -112,6 +114,9 @@
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b281c22ae6eac626d3f68490d57559eb/transformed/image-1.0.0-beta1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-annotations/16.0.0/dbeae20d6c97b747b59ef47b6dcf770ba1a60fa6/firebase-annotations-16.0.0.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/7d494562acb02c07c011a7390b5b277a/transformed/exifinterface-1.3.3-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.14.2/543524781bc197fb64e1c2df1756a8ec17ff05ba/disklrucache-4.14.2.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.14.2/57e84ef841035701766b7d74236d04c65cfa4248/annotations-4.14.2.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-33/android.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar</arg>
               </args>
@@ -183,6 +188,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.firebase:firebase-encoders:16.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.firebase:firebase-annotations:16.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.guava:listenablefuture:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:disklrucache:4.14.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:annotations:4.14.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.databinding:viewbinding:7.2.1@aar" level="project" />
@@ -246,7 +253,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.firebase:firebase-components:16.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.mlkit:barcode-scanning-common:17.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.mlkit:vision-common:17.3.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.exifinterface:exifinterface:1.3.2@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.exifinterface:exifinterface:1.3.3@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.mlkit:common:18.6.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.mlkit:vision-interfaces:16.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.camera:camera-core:1.3.0-alpha03@aar" level="project" />
@@ -256,6 +263,9 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.camera:camera-view:1.3.0-alpha03@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.camera:camera-mlkit-vision:1.3.0-alpha03@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.camera:camera-extensions:1.3.0-alpha03@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:glide:4.14.2@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.github.bumptech.glide:gifdecoder:4.14.2@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.tracing:tracing:1.0.0@aar" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="PointToPointRoutingApp.app.main" />
 </module>

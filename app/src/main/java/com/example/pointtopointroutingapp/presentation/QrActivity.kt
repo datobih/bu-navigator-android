@@ -2,12 +2,17 @@ package com.example.pointtopointroutingapp.presentation
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.pointtopointroutingapp.databinding.ActivityQractivityBinding
 
 class QrActivity : AppCompatActivity() {
@@ -67,6 +72,23 @@ class QrActivity : AppCompatActivity() {
         }
 
 
+
+        Glide.with(this)
+            .asBitmap()
+            .load("https://i.postimg.cc/x18ZqZLD/geo.jpg")
+            .centerCrop()
+            .into(object: CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    binding.testImg.setImageBitmap(resource)
+
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+                    TODO("Not yet implemented")
+                }
+
+
+            })
 
     }
 
