@@ -286,8 +286,7 @@ object Constants {
             6.8912372,
             3.7218916,
             imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
-        )
-,
+        ),
         Destination(
             "Laz Oti Library",
             6.8922464,
@@ -305,10 +304,168 @@ object Constants {
             6.8948227,
             3.7247719,
             imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Felicia Adebisi Dada",
+            6.8935365,
+            3.7251565,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Queen Esther Hall",
+            6.8930532,
+            3.7247585,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Ogden Hall",
+            6.8933941,
+            3.7263316,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "White Hall",
+            6.8936756,
+            3.7263799,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Babcock Stadium",
+            6.8943240,
+            3.7269361,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Babcock Fitness Center",
+            6.8944838,
+            3.7269837,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Havillah Gold Hall",
+            6.8946562,
+            3.7259099,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Crystal Hall",
+            6.8928974,
+            3.7277378,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Platinum Hall",
+            6.8921518,
+            3.7272268,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Diamond Hall",
+            6.8917484,
+            3.7269754,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Nyberg Hall",
+            6.8925446,
+            3.7253865,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Amphitheatre",
+            6.8908184,
+            3.7224099,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Chiramoke National Political Resource Centre",
+            6.8905748,
+            3.7229916,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "New Horizon",
+            6.8902759,
+            3.7231616,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Bursary Division",
+            6.8902759,
+            3.7227073,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "School of Education and Humanities",
+            6.8902050,
+            3.7208797,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Babrite",
+            6.8913380,
+            3.7205337,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Topaz Hall",
+            6.8934197,
+            3.7203446,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Adeleke Hall",
+            6.8929623,
+            3.7209726,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Neal Wilson",
+            6.8931294,
+            3.7218362,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Winslow Hall",
+            6.8939566,
+            3.7215221,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Nelson Mandela Hall",
+            6.8935458,
+            3.7228759,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Samuel Akande Hall",
+            6.8942245,
+            3.7235596,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ), Destination(
+            "Bethel Hall",
+            6.8942245,
+            3.7235596,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Gideon Troopers Hall",
+            6.8945051,
+            3.7223713,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ),
+        Destination(
+            "Cafeteria",
+            6.8926105,
+            3.7236927,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
+        ), Destination(
+            "Registry",
+            6.8926105,
+            3.7219063,
+            imageUrl = "https://i.postimg.cc/x18ZqZLD/geo.jpg"
         )
     )
-
-
 
 
     val mapStyle = "[\n" +
@@ -320,8 +477,22 @@ object Constants {
             "      }\n" +
             "    ]\n" +
             "  },\n" +
-
-
+            "  {\n" +
+            "    \"featureType\": \"administrative.land_parcel\",\n" +
+            "    \"stylers\": [\n" +
+            "      {\n" +
+            "        \"visibility\": \"off\"\n" +
+            "      }\n" +
+            "    ]\n" +
+            "  },\n" +
+            "  {\n" +
+            "    \"featureType\": \"administrative.neighborhood\",\n" +
+            "    \"stylers\": [\n" +
+            "      {\n" +
+            "        \"visibility\": \"off\"\n" +
+            "      }\n" +
+            "    ]\n" +
+            "  }\n" +
             "]"
 
     fun downloadBitmap(url: String): Bitmap {

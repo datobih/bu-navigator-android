@@ -174,7 +174,7 @@ Toast.makeText(this,"EXACTLY",Toast.LENGTH_SHORT).show()
                     val locationList=ArrayList<Destination>()
 
 
-                for(location  in Constants.destinations){
+                for(location  in Constants.buDestinations){
                     if(location.name.lowercase().contains(it.toString().lowercase())){
                         locationList.add(location)
                     }
