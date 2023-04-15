@@ -45,11 +45,9 @@
         app:tint="#757575"
         android:backgroundTint="@color/white"
         android:elevation="10dp"
-
+android:visibility="invisible"
 
         ></ImageButton>
-
-
 
 
         <EditText
@@ -61,13 +59,89 @@
             android:layout_below="@id/btn_refresh_map"
             android:paddingStart="15dp"
             android:drawableStart="@drawable/search_padding_bg"
+            android:drawableEnd="@drawable/ic_round_refresh_24"
+            android:paddingEnd="15dp"
             android:drawablePadding="10dp"
             android:hint="Search..."
             style="@style/search_text_style"
             android:elevation="10dp"
+            android:textIsSelectable="false"
             ></EditText>
 
 
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/act_search_location"
+    android:scrollbars="none"
+    >
+    <LinearLayout
+        android:id="@+id/ll_location_filters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Halls"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_location_filter"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Venues"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_location_filter"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Cafeteria"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_location_filter"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Gym"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_location_filter"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Stadium"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:background="@drawable/btn_location_filter"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            ></androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+
+</HorizontalScrollView>
 
 
 

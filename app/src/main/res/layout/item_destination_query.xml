@@ -25,12 +25,13 @@
             >
 
             <ImageView
+                android:id="@+id/imv_location"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:background="@color/black"></ImageView>
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -55,17 +56,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="10dp"
-                    android:text="School canteen"
+                    android:text="Research Centre"
                     android:fontFamily="@font/poppins"
                     android:textSize="12sp"
                     android:textColor="#77838F"
                     android:maxLines="3"
                     android:ellipsize="end"
+                    android:layout_below="@id/tv_location_name"
                     ></TextView>
 
 
 
-            </LinearLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:text="Directions"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/round_button_bg"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_alignParentBottom="true"
+                    ></androidx.appcompat.widget.AppCompatButton>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 
